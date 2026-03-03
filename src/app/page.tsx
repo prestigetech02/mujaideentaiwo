@@ -298,24 +298,26 @@ export default function Home() {
       </nav>
 
       {/* Mobile: fixed bottom floating glass nav */}
-      <div className="fixed bottom-4 left-4 right-4 z-10 md:hidden">
-        <nav className="glass-panel rounded-2xl flex items-center justify-center gap-0 overflow-x-auto tech-scroll-hide px-2.5 py-2">
-          {navItems.map((item) => (
-            <button
-              type="button"
-              key={item.id}
-              data-torch="button"
-              className={`shrink-0 px-2 py-2 text-[11px] font-medium transition ${
-                item.id === activeTab
-                  ? "text-brand-primary"
-                  : "text-gray-300 hover:text-white"
-              }`}
-              onClick={() => setActiveTab(item.id)}
-            >
-              {item.label}
-            </button>
-          ))}
-        </nav>
+      <div className="fixed inset-x-0 bottom-0 z-20 md:hidden pointer-events-none">
+        <div className="px-4 pb-4">
+          <nav className="glass-panel rounded-2xl flex items-center justify-center gap-0 overflow-x-auto tech-scroll-hide px-2.5 py-2 pointer-events-auto">
+            {navItems.map((item) => (
+              <button
+                type="button"
+                key={item.id}
+                data-torch="button"
+                className={`shrink-0 px-2 py-2 text-[11px] font-medium transition ${
+                  item.id === activeTab
+                    ? "text-brand-primary"
+                    : "text-gray-300 hover:text-white"
+                }`}
+                onClick={() => setActiveTab(item.id)}
+              >
+                {item.label}
+              </button>
+            ))}
+          </nav>
+        </div>
       </div>
 
       <div className="flex-1 p-6 lg:p-10 pb-24 md:pb-10 space-y-12 overflow-y-auto">
@@ -518,7 +520,7 @@ export default function Home() {
             </section>
             <div className="sticky bottom-6 mt-8 flex justify-end pr-0">
               <a
-                href="/cv.pdf"
+                href="/mycv.pdf"
                 download
                 data-torch="button"
                 className="inline-flex items-center gap-2 rounded-full bg-[#212121] px-4 py-2 md:px-5 md:py-2.5 text-xs md:text-sm font-medium text-brand-primary shadow-[0_0_0_1px_rgba(255,255,255,0.08)_inset,0_2px_8px_rgba(0,0,0,0.3)] transition hover:bg-[#2a2a2a] hover:text-brand-primary"
