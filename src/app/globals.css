@@ -2,32 +2,104 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer base {
+  body {
+    @apply bg-black text-white antialiased;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@layer components {
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-glass border border-white/10 shadow-xl;
+  }
+
+  /* GlassSystem v1.1 — Edge & Gloss (left/right containers) */
+  .glass-panel {
+    position: relative;
+    overflow: hidden;
+    @apply rounded-2xl;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.05) inset,
+      0 8px 32px rgba(0, 0, 0, 0.25);
+  }
+
+  .neu-card {
+    @apply bg-[#0B1018] shadow-neu rounded-2xl border border-black/50;
+  }
+
+  .hugeicon {
+    @apply text-brand-primary;
+  }
+
+  /* Marquee scroll animation */
+  @keyframes tech-marquee-scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  .tech-marquee {
+    animation: tech-marquee-scroll 40s linear infinite;
+    flex-wrap: nowrap;
+  }
+
+  /* Portfolio tab switch: shrink then grow */
+  @keyframes portfolio-shrink {
+    from {
+      opacity: 1;
+      transform: scale(1);
+    }
+    to {
+      opacity: 0;
+      transform: scale(0.92);
+    }
+  }
+  @keyframes portfolio-grow {
+    from {
+      opacity: 0;
+      transform: scale(0.92);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  .animate-portfolio-shrink {
+    animation: portfolio-shrink 0.25s ease-in forwards;
+  }
+  .animate-portfolio-grow {
+    animation: portfolio-grow 0.3s ease-out forwards;
+  }
+
+  /* Torch on button: narrow beam + button animation */
+  @keyframes torch-button-pulse {
+    0%,
+    100% {
+      box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.2);
+      transform: scale(1);
+    }
+    50% {
+      box-shadow: 0 0 20px 2px rgba(34, 197, 94, 0.35);
+      transform: scale(1.02);
+    }
+  }
+  [data-torch="button"].torch-on {
+    animation: torch-button-pulse 1.2s ease-in-out infinite;
+  }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  .text-justify {
+    text-align: justify;
   }
 }

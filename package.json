@@ -11,7 +11,10 @@
   "dependencies": {
     "react": "^18",
     "react-dom": "^18",
-    "next": "14.1.0"
+    "next": "14.1.0",
+    "@hugeicons/react": "^1.1.5",
+    "@hugeicons/core-free-icons": "^1.1.5",
+    "nodemailer": "^6.9"
   },
   "devDependencies": {
     "typescript": "^5",
