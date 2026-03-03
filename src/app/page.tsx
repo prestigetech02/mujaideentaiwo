@@ -67,18 +67,6 @@ const skillCategories: { title: string; items: string[] }[] = [
 
 const services = [
   {
-    title: "UI/UX Design",
-    description:
-      "Modern, user-centered interfaces designed with attention to accessibility, clarity, and delight across web and mobile.",
-    icon: WebDesign01Icon,
-  },
-  {
-    title: "Backend Development",
-    description:
-      "High-performance backend services designed for scalability, security, and seamless user experience.",
-    icon: ServerStack01Icon,
-  },
-  {
     title: "Mobile Apps",
     description:
       "Professional development of cross-platform applications using Flutter for both Android and iOS.",
@@ -89,6 +77,18 @@ const services = [
     description:
       "Responsive, SEO-friendly web applications built with modern stacks like React and Next.js.",
     icon: CodeIcon,
+  },
+  {
+    title: "WordPress",
+    description:
+      "Custom WordPress sites, themes, and plugins—from content-heavy sites to WooCommerce and membership platforms.",
+    icon: ServerStack01Icon,
+  },
+  {
+    title: "UI/UX Design",
+    description:
+      "Modern, user-centered interfaces designed with attention to accessibility, clarity, and delight across web and mobile.",
+    icon: WebDesign01Icon,
   },
 ];
 
@@ -268,8 +268,8 @@ export default function Home() {
 
   return (
     <div className="flex flex-col h-full">
-      {/* Nav */}
-      <nav className="flex items-center justify-between gap-4 border-b border-white/10 px-6 lg:px-10 pt-6 pb-0">
+      {/* Desktop Nav (top) */}
+      <nav className="hidden md:flex items-center justify-between gap-4 border-b border-white/10 px-6 lg:px-10 pt-6 pb-0">
         <div className="flex gap-1">
           {navItems.map((item) => (
             <button
@@ -297,16 +297,37 @@ export default function Home() {
         </button>
       </nav>
 
-      <div className="flex-1 p-6 lg:p-10 space-y-12 overflow-y-auto">
+      {/* Mobile: fixed bottom floating glass nav */}
+      <div className="fixed bottom-4 left-4 right-4 z-10 md:hidden">
+        <nav className="glass-panel rounded-2xl flex items-center justify-center gap-0 overflow-x-auto tech-scroll-hide px-2.5 py-2">
+          {navItems.map((item) => (
+            <button
+              type="button"
+              key={item.id}
+              data-torch="button"
+              className={`shrink-0 px-2 py-2 text-[11px] font-medium transition ${
+                item.id === activeTab
+                  ? "text-brand-primary"
+                  : "text-gray-300 hover:text-white"
+              }`}
+              onClick={() => setActiveTab(item.id)}
+            >
+              {item.label}
+            </button>
+          ))}
+        </nav>
+      </div>
+
+      <div className="flex-1 p-6 lg:p-10 pb-24 md:pb-10 space-y-12 overflow-y-auto">
         {activeTab === "about" && (
           <>
             {/* About Me */}
             <section>
-              <h1 className="text-3xl lg:text-4xl font-bold text-white">
+              <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white">
                 About Me
               </h1>
               <div className="mt-2 h-1 w-16 rounded-full bg-brand-primary" />
-              <div className="mt-6 text-gray-300">
+              <div className="mt-6 text-gray-300 text-sm md:text-base">
                 <p className="leading-relaxed text-justify">
                   Full-Stack Developer with 2+ years of experience building
                   scalable web and mobile applications using React, Flutter,
@@ -323,10 +344,10 @@ export default function Home() {
               </div>
             </section>
 
-            {/* What I'm Doing */}
+            {/* My Expertise */}
             <section>
-              <h2 className="text-3xl lg:text-4xl font-bold text-white">
-                What I&apos;m Doing
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white">
+                My Expertise
               </h2>
               <div className="mt-2 h-1 w-16 rounded-full bg-brand-primary" />
               <div className="mt-8 grid gap-6 sm:grid-cols-2">
@@ -337,7 +358,7 @@ export default function Home() {
                 className="rounded-2xl bg-white/[0.06] border border-white/10 p-6 hover:bg-white/[0.08] transition"
               >
                     <span
-                      className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-white/10 text-xl mb-4"
+                      className="inline-flex h-10 w-10 md:h-12 md:w-12 items-center justify-center rounded-xl bg-white/10 text-lg md:text-xl mb-3 md:mb-4"
                       aria-hidden
                     >
                       <HugeiconsIcon
@@ -348,10 +369,10 @@ export default function Home() {
                         className="hugeicon"
                       />
                     </span>
-                    <h3 className="text-lg font-semibold text-white">
+                    <h3 className="text-base md:text-lg font-semibold text-white">
                       {service.title}
                     </h3>
-                    <p className="mt-2 text-sm text-gray-400 leading-relaxed">
+                    <p className="mt-2 text-xs md:text-sm text-gray-400 leading-relaxed">
                       {service.description}
                     </p>
                   </div>
@@ -363,7 +384,7 @@ export default function Home() {
             <section aria-labelledby="tools-i-use-heading">
               <h2
                 id="tools-i-use-heading"
-                className="text-3xl lg:text-4xl font-bold text-white"
+                className="text-2xl md:text-3xl lg:text-4xl font-bold text-white"
               >
                 Tools I use
               </h2>
@@ -381,7 +402,7 @@ export default function Home() {
             <section aria-labelledby="resume-heading">
               <h2
                 id="resume-heading"
-                className="text-3xl lg:text-4xl font-bold text-white"
+                className="text-2xl md:text-3xl lg:text-4xl font-bold text-white"
               >
                 Resume
               </h2>
@@ -400,7 +421,7 @@ export default function Home() {
                     />
                   </div>
                   <div className="min-w-0 flex-1">
-                    <h3 className="text-xl font-bold text-white">Education</h3>
+                    <h3 className="text-lg md:text-xl font-bold text-white">Education</h3>
                     <div className="mt-4 space-y-0">
                       {education.map((entry, i) => (
                         <div key={i} className="flex gap-4">
@@ -414,13 +435,13 @@ export default function Home() {
                             )}
                           </div>
                           <div className="flex-1 pb-6">
-                            <p className="font-semibold text-white">
+                            <p className="font-semibold text-white text-sm md:text-base">
                               {entry.institution}
                             </p>
-                            <p className="mt-0.5 text-sm text-gray-400">
+                            <p className="mt-0.5 text-xs md:text-sm text-gray-400">
                               {entry.degree}
                             </p>
-                            <p className="mt-1 text-sm text-brand-primary">
+                            <p className="mt-1 text-xs md:text-sm text-brand-primary">
                               {entry.period}
                             </p>
                           </div>
@@ -442,7 +463,7 @@ export default function Home() {
                     />
                   </div>
                   <div className="min-w-0 flex-1">
-                    <h3 className="text-xl font-bold text-white">Experience</h3>
+                    <h3 className="text-lg md:text-xl font-bold text-white">Experience</h3>
                     <div className="mt-4 space-y-0">
                       {experience.map((entry, i) => (
                         <div key={i} className="flex gap-4">
@@ -456,13 +477,13 @@ export default function Home() {
                             )}
                           </div>
                           <div className="flex-1 pb-8">
-                            <p className="font-semibold text-white">
+                            <p className="font-semibold text-white text-sm md:text-base">
                               {entry.title}
                             </p>
-                            <p className="mt-0.5 text-sm text-gray-400">
+                            <p className="mt-0.5 text-xs md:text-sm text-gray-400">
                               {entry.company}
                             </p>
-                            <p className="mt-1 text-sm text-gray-400">
+                            <p className="mt-1 text-xs md:text-sm text-gray-400">
                               {entry.period}
                               {entry.duration ? (
                                 <span className="text-brand-primary">
@@ -471,10 +492,10 @@ export default function Home() {
                                 </span>
                               ) : null}
                             </p>
-                            <p className="mt-0.5 text-sm text-gray-400">
+                            <p className="mt-0.5 text-xs md:text-sm text-gray-400">
                               {entry.location}
                             </p>
-                            <ul className="mt-3 list-none space-y-1.5 text-sm text-gray-400">
+                            <ul className="mt-3 list-none space-y-1.5 text-xs md:text-sm text-gray-400">
                               {entry.bullets.map((bullet, j) => (
                                 <li key={j} className="flex gap-2">
                                   <span
@@ -500,7 +521,7 @@ export default function Home() {
                 href="/cv.pdf"
                 download
                 data-torch="button"
-                className="inline-flex items-center gap-2 rounded-full bg-[#212121] px-5 py-2.5 text-sm font-medium text-brand-primary shadow-[0_0_0_1px_rgba(255,255,255,0.08)_inset,0_2px_8px_rgba(0,0,0,0.3)] transition hover:bg-[#2a2a2a] hover:text-brand-primary"
+                className="inline-flex items-center gap-2 rounded-full bg-[#212121] px-4 py-2 md:px-5 md:py-2.5 text-xs md:text-sm font-medium text-brand-primary shadow-[0_0_0_1px_rgba(255,255,255,0.08)_inset,0_2px_8px_rgba(0,0,0,0.3)] transition hover:bg-[#2a2a2a] hover:text-brand-primary"
               >
                 <HugeiconsIcon
                   icon={FileDownloadIcon}
@@ -519,7 +540,7 @@ export default function Home() {
           <section aria-labelledby="portfolio-heading">
             <h2
               id="portfolio-heading"
-              className="text-3xl lg:text-4xl font-bold text-white"
+              className="text-2xl md:text-3xl lg:text-4xl font-bold text-white"
             >
               Portfolio
             </h2>
@@ -531,7 +552,7 @@ export default function Home() {
                   type="button"
                   onClick={() => handlePortfolioTab(cat)}
                   data-torch="button"
-                  className={`rounded-lg px-4 py-2.5 text-sm font-medium transition ${
+                  className={`rounded-lg px-3 py-2 md:px-4 md:py-2.5 text-xs md:text-sm font-medium transition ${
                     portfolioFilter === cat
                       ? "bg-white/10 text-brand-primary border border-white/20"
                       : "text-gray-400 hover:text-white hover:bg-white/5"
@@ -578,14 +599,14 @@ export default function Home() {
                         className="object-cover"
                       />
                     ) : (
-                      <span className="text-4xl text-white/20 font-bold">
+                      <span className="text-2xl md:text-4xl text-white/20 font-bold">
                         {project.title.charAt(0)}
                       </span>
                     )}
                   </div>
-                  <div className="p-4">
-                    <h3 className="font-semibold text-white">{project.title}</h3>
-                    <p className="mt-1 text-sm text-gray-400">
+                  <div className="p-3 md:p-4">
+                    <h3 className="font-semibold text-white text-sm md:text-base">{project.title}</h3>
+                    <p className="mt-1 text-xs md:text-sm text-gray-400">
                       {project.category}
                     </p>
                   </div>
@@ -599,18 +620,18 @@ export default function Home() {
           <section aria-labelledby="contact-heading">
             <h2
               id="contact-heading"
-              className="text-3xl lg:text-4xl font-bold text-white"
+              className="text-2xl md:text-3xl lg:text-4xl font-bold text-white"
             >
               Contact
             </h2>
             <div className="mt-2 h-1 w-16 rounded-full bg-brand-primary" />
-            <p className="mt-4 text-gray-400">
+            <p className="mt-4 text-gray-400 text-sm md:text-base">
               Have a project in mind or want to chat? Send a message.
             </p>
 
             <div className="mt-8 max-w-xl">
               {contactError && (
-                <div className="mb-4 rounded-xl bg-red-500/10 border border-red-500/30 px-4 py-3 text-sm text-red-300">
+                <div className="mb-4 rounded-xl bg-red-500/10 border border-red-500/30 px-4 py-3 text-xs md:text-sm text-red-300">
                   {contactError}
                 </div>
               )}
@@ -622,13 +643,13 @@ export default function Home() {
                   <p className="text-brand-primary font-medium">
                     Thanks for your message!
                   </p>
-                  <p className="mt-2 text-sm text-gray-400">
+                  <p className="mt-2 text-xs md:text-sm text-gray-400">
                     I&apos;ll get back to you soon.
                   </p>
                   <button
                     type="button"
                     onClick={() => setContactSubmitted(false)}
-                    className="mt-4 text-sm text-gray-400 hover:text-brand-primary transition-colors underline"
+                    className="mt-4 text-xs md:text-sm text-gray-400 hover:text-brand-primary transition-colors underline"
                   >
                     Send another message
                   </button>
@@ -642,7 +663,7 @@ export default function Home() {
                   <div>
                     <label
                       htmlFor="contact-name"
-                      className="block text-sm font-medium text-gray-300 mb-1.5"
+                      className="block text-xs md:text-sm font-medium text-gray-300 mb-1.5"
                     >
                       Name
                     </label>
@@ -654,14 +675,14 @@ export default function Home() {
                       onChange={(e) =>
                         setContactForm((prev) => ({ ...prev, name: e.target.value }))
                       }
-                      className="w-full rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-white placeholder-gray-500 focus:border-brand-primary focus:outline-none focus:ring-1 focus:ring-brand-primary transition"
+                      className="w-full rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-sm md:text-base text-white placeholder-gray-500 focus:border-brand-primary focus:outline-none focus:ring-1 focus:ring-brand-primary transition"
                       placeholder="Your name"
                     />
                   </div>
                   <div>
                     <label
                       htmlFor="contact-email"
-                      className="block text-sm font-medium text-gray-300 mb-1.5"
+                      className="block text-xs md:text-sm font-medium text-gray-300 mb-1.5"
                     >
                       Email
                     </label>
@@ -673,14 +694,14 @@ export default function Home() {
                       onChange={(e) =>
                         setContactForm((prev) => ({ ...prev, email: e.target.value }))
                       }
-                      className="w-full rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-white placeholder-gray-500 focus:border-brand-primary focus:outline-none focus:ring-1 focus:ring-brand-primary transition"
+                      className="w-full rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-sm md:text-base text-white placeholder-gray-500 focus:border-brand-primary focus:outline-none focus:ring-1 focus:ring-brand-primary transition"
                       placeholder="you@example.com"
                     />
                   </div>
                   <div>
                     <label
                       htmlFor="contact-subject"
-                      className="block text-sm font-medium text-gray-300 mb-1.5"
+                      className="block text-xs md:text-sm font-medium text-gray-300 mb-1.5"
                     >
                       Subject
                     </label>
@@ -692,14 +713,14 @@ export default function Home() {
                       onChange={(e) =>
                         setContactForm((prev) => ({ ...prev, subject: e.target.value }))
                       }
-                      className="w-full rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-white placeholder-gray-500 focus:border-brand-primary focus:outline-none focus:ring-1 focus:ring-brand-primary transition"
+                      className="w-full rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-sm md:text-base text-white placeholder-gray-500 focus:border-brand-primary focus:outline-none focus:ring-1 focus:ring-brand-primary transition"
                       placeholder="What is this about?"
                     />
                   </div>
                   <div>
                     <label
                       htmlFor="contact-message"
-                      className="block text-sm font-medium text-gray-300 mb-1.5"
+                      className="block text-xs md:text-sm font-medium text-gray-300 mb-1.5"
                     >
                       Message
                     </label>
@@ -711,7 +732,7 @@ export default function Home() {
                       onChange={(e) =>
                         setContactForm((prev) => ({ ...prev, message: e.target.value }))
                       }
-                      className="w-full rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-white placeholder-gray-500 focus:border-brand-primary focus:outline-none focus:ring-1 focus:ring-brand-primary transition resize-y min-h-[120px]"
+                      className="w-full rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-sm md:text-base text-white placeholder-gray-500 focus:border-brand-primary focus:outline-none focus:ring-1 focus:ring-brand-primary transition resize-y min-h-[120px]"
                       placeholder="Your message..."
                     />
                   </div>
@@ -719,7 +740,7 @@ export default function Home() {
                     type="submit"
                     disabled={contactSending}
                     data-torch="button"
-                    className="w-full rounded-xl bg-white/10 border border-white/20 py-3 text-sm font-medium text-white hover:bg-white/15 hover:text-brand-primary transition focus:outline-none focus:ring-2 focus:ring-brand-primary focus:ring-offset-2 focus:ring-offset-black disabled:opacity-60 disabled:pointer-events-none"
+                    className="w-full rounded-xl bg-white/10 border border-white/20 py-3 text-xs md:text-sm font-medium text-white hover:bg-white/15 hover:text-brand-primary transition focus:outline-none focus:ring-2 focus:ring-brand-primary focus:ring-offset-2 focus:ring-offset-black disabled:opacity-60 disabled:pointer-events-none"
                   >
                     {contactSending ? "Sending..." : "Send message"}
                   </button>
@@ -733,7 +754,7 @@ export default function Home() {
           <section aria-labelledby="skills-heading">
             <h2
               id="skills-heading"
-              className="text-3xl lg:text-4xl font-bold text-white"
+              className="text-2xl md:text-3xl lg:text-4xl font-bold text-white"
             >
               Skills
             </h2>
@@ -741,7 +762,7 @@ export default function Home() {
             <div className="mt-8 space-y-10">
               {skillCategories.map((category) => (
                 <div key={category.title}>
-                  <h3 className="text-lg font-semibold text-white mb-4">
+                  <h3 className="text-base md:text-lg font-semibold text-white mb-4">
                     {category.title}
                   </h3>
                   <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -751,7 +772,7 @@ export default function Home() {
                         data-torch="card"
                         className="rounded-2xl bg-white/[0.06] border border-white/10 px-4 py-3 hover:bg-white/[0.08] transition"
                       >
-                        <p className="text-sm font-medium text-white">
+                        <p className="text-xs md:text-sm font-medium text-white">
                           {skill}
                         </p>
                       </div>

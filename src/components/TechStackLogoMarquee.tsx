@@ -22,7 +22,7 @@ const TechStackLogoMarquee: React.FC<TechStackProps> = ({
   if (!logos.length) return null;
 
   const iconClass =
-    "h-7 sm:h-8 md:h-9 w-auto opacity-70 hover:opacity-100 transition-transform duration-200";
+    "h-7 sm:h-8 md:h-9 w-auto brightness-0 invert opacity-55 transition-[filter,transform,opacity] duration-200 hover:opacity-100 hover:brightness-100 hover:invert-0 hover:scale-105";
 
   const content = (
     <>
@@ -34,7 +34,7 @@ const TechStackLogoMarquee: React.FC<TechStackProps> = ({
           width={36}
           height={36}
           loading="lazy"
-          className={`${iconClass} grayscale brightness-150 hover:opacity-100 hover:grayscale-0 hover:scale-105`}
+          className={iconClass}
         />
       ))}
     </>

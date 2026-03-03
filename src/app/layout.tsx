@@ -73,7 +73,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${outfit.className} text-white antialiased`}>
         <MouseTorch />
-        <div className="min-h-screen grid grid-cols-1 md:grid-cols-[minmax(200px,20%)_1fr] gap-4 p-4 lg:gap-6 lg:p-6">
+        <div className="min-h-screen grid grid-cols-1 md:grid-cols-[minmax(260px,22%)_1fr] gap-4 p-4 lg:gap-6 lg:p-6">
           <aside className="glass-panel self-start sticky top-4 lg:top-6">
             <Sidebar />
           </aside>

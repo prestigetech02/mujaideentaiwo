@@ -6,6 +6,31 @@
   body {
     @apply bg-black text-white antialiased;
   }
+
+  /* Dark scrollbar to match container */
+  body::-webkit-scrollbar,
+  .glass-panel::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  body::-webkit-scrollbar-track,
+  .glass-panel::-webkit-scrollbar-track {
+    background: #0f172a;
+  }
+  body::-webkit-scrollbar-thumb,
+  .glass-panel::-webkit-scrollbar-thumb {
+    background: #1e293b;
+    border-radius: 5px;
+  }
+  body::-webkit-scrollbar-thumb:hover,
+  .glass-panel::-webkit-scrollbar-thumb:hover {
+    background: #334155;
+  }
+  body,
+  .glass-panel {
+    scrollbar-color: #1e293b #0f172a;
+    scrollbar-width: thin;
+  }
 }
 
 @layer components {
