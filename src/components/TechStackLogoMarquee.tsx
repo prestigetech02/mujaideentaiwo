@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 type TechLogo = {
   src: string; // public path, e.g. "/tech-logos/react.svg"
@@ -26,12 +27,12 @@ const TechStackLogoMarquee: React.FC<TechStackProps> = ({
   const content = (
     <>
       {logos.map((logo, index) => (
-        // index is fine here, order is static
-        <img
+        <Image
           key={index}
           src={logo.src}
           alt={logo.alt}
-          role="img"
+          width={36}
+          height={36}
           loading="lazy"
           className={`${iconClass} grayscale brightness-150 hover:opacity-100 hover:grayscale-0 hover:scale-105`}
         />

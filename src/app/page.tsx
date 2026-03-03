@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { HugeiconsIcon } from "@hugeicons/react";
 import TechStackLogoMarquee from "@/components/TechStackLogoMarquee";
 import {
@@ -567,12 +568,14 @@ export default function Home() {
                   data-torch="card"
                   className="block rounded-2xl bg-white/[0.06] border border-white/10 overflow-hidden hover:bg-white/[0.08] transition focus:outline-none focus:ring-2 focus:ring-brand-primary focus:ring-offset-2 focus:ring-offset-black"
                 >
-                  <div className="aspect-video bg-white/5 flex items-center justify-center">
+                  <div className="aspect-video bg-white/5 flex items-center justify-center relative overflow-hidden">
                     {project.image ? (
-                      <img
+                      <Image
                         src={project.image.includes(" ") ? project.image.replace(/ /g, "%20") : project.image}
                         alt={`${project.title} preview`}
-                        className="h-full w-full object-cover"
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        className="object-cover"
                       />
                     ) : (
                       <span className="text-4xl text-white/20 font-bold">
