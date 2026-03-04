@@ -3,6 +3,7 @@ import { Outfit } from "next/font/google";
 import "./globals.css";
 import Sidebar from "@/components/Sidebar";
 import MouseTorch from "@/components/MouseTorch";
+import MobileTopNav from "@/components/MobileTopNav";
 
 const outfit = Outfit({ subsets: ["latin"], display: "swap" });
 
@@ -73,13 +74,16 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${outfit.className} text-white antialiased`}>
         <MouseTorch />
-        <div className="min-h-screen grid grid-cols-1 md:grid-cols-[minmax(260px,22%)_1fr] gap-4 p-4 lg:gap-6 lg:p-6">
-          <aside className="glass-panel self-start sticky top-4 lg:top-6">
-            <Sidebar />
-          </aside>
-          <main className="glass-panel">
-            {children}
-          </main>
+        <div className="min-h-screen flex flex-col">
+          <MobileTopNav />
+          <div className="flex-1 grid grid-cols-1 md:grid-cols-[minmax(260px,22%)_1fr] gap-4 p-4 pt-0 md:pt-4 lg:gap-6 lg:p-6">
+            <aside className="glass-panel self-start sticky top-4 lg:top-6">
+              <Sidebar />
+            </aside>
+            <main className="glass-panel">
+              {children}
+            </main>
+          </div>
         </div>
       </body>
     </html>

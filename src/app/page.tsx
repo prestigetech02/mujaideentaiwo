@@ -180,35 +180,56 @@ const projects: {
   url?: string;
 }[] = [
   // Web Apps
-  { title: "Billows", category: "Web Apps", image: "/projects/billows-webapp.png", url: "#" },
-  { title: "GoQuick Web", category: "Web Apps", image: "/projects/goquick-webapp.png", url: "https://github.com/prestigetech02/goquick" },
-  { title: "Passpro", category: "Web Apps", image: "/projects/passpro-webapp.png", url: "https://github.com/prestigetech02/passpro" },
-  { title: "CribEasy", category: "Web Apps", image: "/projects/cribeasy-webapp.png", url: "https://github.com/prestigetech02/cribeasy-landing" },
-  { title: "Mujaideen Taiwo", category: "Web Apps", image: "/projects/mujaideentaiwo-webapp.png", url: "https://github.com/prestigetech02/mujaideentaiwofs" },
-  { title: "Maryam Portfolio", category: "Web Apps", image: "/projects/Maryamportfolio-webapp.png", url: "https://github.com/prestigetech02/maryam-portfolio" },
+  { title: "Billows", category: "Web Apps", image: "/projects/billows-webapp.png", url: "https://billows.com.ng" },
+  { title: "GoQuick Web", category: "Web Apps", image: "/projects/goquick-webapp.png", url: "https://goquickapp.com.ng" },
+  { title: "Passpro", category: "Web Apps", image: "/projects/passpro-webapp.png", url: "https://passproafrica.com.ng" },
+  { title: "CribEasy App", category: "Web Apps", image: "/projects/cribeasy-webapp.png", url: "https://cribeasyapp.com" },
+  { title: "Mujaideen Taiwo", category: "Web Apps", image: "/projects/mujaideentaiwo-webapp.png", url: "https://mujaideen-taiwo.netlify.app" },
+  { title: "Maryam Portfolio", category: "Web Apps", image: "/projects/Maryamportfolio-webapp.png", url: "https://maryam-portfolio-ten.vercel.app" },
   // Mobile Applications
-  { title: "GoQuick", category: "Mobile Applications", image: "/projects/goquick-mobile.png", url: "https://github.com/prestigetech02/goquick" },
+  { title: "GoQuick", category: "Mobile Applications", image: "/projects/goquick-mobile.png", url: "https://drive.google.com/drive/folders/1n9l2jaIx_APNtkOIGuG8p60To2-zcaF_?usp=sharing" },
   { title: "Passpro Mobile", category: "Mobile Applications", image: "/projects/passpro-mobile.png", url: "https://github.com/prestigetech02/passpro" },
   // Wordpress Websites
-  { title: "Listofits", category: "Wordpress Websites", image: "/projects/listofits - wordpress.png", url: "#" },
-  { title: "The Paddle", category: "Wordpress Websites", image: "/projects/thepadle-wordpress.png", url: "#" },
-  { title: "HBT", category: "Wordpress Websites", image: "/projects/hbt-wordpress.png", url: "#" },
-  { title: "The Scale", category: "Wordpress Websites", image: "/projects/thescale-wordpres.png", url: "#" },
-  { title: "DNN", category: "Wordpress Websites", image: "/projects/dnn-wordpress.png", url: "#" },
-  { title: "Earlybee", category: "Wordpress Websites", image: "/projects/earlybee - wordpress.png", url: "#" },
-  { title: "ICL Group", category: "Wordpress Websites", image: "/projects/ICLgroup-wordpress.png", url: "#" },
-  { title: "Kwikwell", category: "Wordpress Websites", image: "/projects/kwikwell-wordpress.png", url: "#" },
-  { title: "Pointnews", category: "Wordpress Websites", image: "/projects/Pointnews-wordpress.png", url: "#" },
-  { title: "Myrhobes", category: "Wordpress Websites", image: "/projects/Myrhobes-wordpress.png", url: "#" },
+  { title: "Listofits", category: "Wordpress Websites", image: "/projects/listofits - wordpress.png", url: "https://listofits.com" },
+  { title: "The Paddle", category: "Wordpress Websites", image: "/projects/thepadle-wordpress.png", url: "https://thepaddlehealthcare.co.uk" },
+  { title: "Hobson's choice", category: "Wordpress Websites", image: "/projects/hbt-wordpress.png", url: "https://hobsonschoicetransport.com" },
+  { title: "The Scale", category: "Wordpress Websites", image: "/projects/thescale-wordpres.png", url: "https://thescale.com.ng" },
+  { title: "Daily Naija News", category: "Wordpress Websites", image: "/projects/dnn-wordpress.png", url: "https://dailynaijanews.com" },
+  { title: "Earlybee", category: "Wordpress Websites", image: "/projects/earlybee - wordpress.png", url: "https://earlybee.ca" },
+  { title: "ICL Group", category: "Wordpress Websites", image: "/projects/ICLgroup-wordpress.png", url: "https://iclgroup.com" },
+  { title: "Kwikwell", category: "Wordpress Websites", image: "/projects/kwikwell-wordpress.png", url: "https://kwikwell.com" },
+  { title: "Pointnews", category: "Wordpress Websites", image: "/projects/Pointnews-wordpress.png", url: "https://pointnews247.com" },
+  { title: "Myrhobes", category: "Wordpress Websites", image: "/projects/Myrhobes-wordpress.png", url: "https://myrhobes.com" },
   // UI/UX
-  { title: "Craftly", category: "UI/UX", image: "/projects/Craftly-UIux.png", url: "#" },
-  { title: "Farmvault", category: "UI/UX", image: "/projects/farmvault-uiux.png", url: "#" },
-  { title: "Bosskard", category: "UI/UX", image: "/projects/bosskard-uiux.png", url: "#" },
+  { title: "Craftly", category: "UI/UX", image: "/projects/Craftly-UIux.png", url: "https://www.figma.com/design/EVwDRid286qk5XQE3pPt7r/CRAFTLY?node-id=883-7322&t=W7m1p0YwJuxRGsn4-0" },
+  { title: "Farmvault", category: "UI/UX", image: "/projects/farmvault-uiux.png", url: "https://www.figma.com/design/Cpbi6ZwGN4ih4Ohw0M5KTd/Farm-Vault-Landing-Page?node-id=222-4773&t=BUkU7MEdi5whlcmu-0" },
+  { title: "Bosskard", category: "UI/UX", image: "/projects/bosskard-uiux.png", url: "https://www.figma.com/design/8pcGuI57ebd8jYFcZRgzJK/BOSSKARD-LANDING-PAGE?t=rdxxWt5ZEI4rQHjt-0" },
 ];
+
+const validTabIds = new Set(navItems.map((item) => item.id));
+
+function getTabFromHash(): string {
+  if (typeof window === "undefined") return "about";
+  const hash = window.location.hash.slice(1).toLowerCase();
+  return validTabIds.has(hash) ? hash : "about";
+}
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState("about");
   const [portfolioFilter, setPortfolioFilter] = useState<PortfolioCategory>("All");
+
+  // Sync tab with URL hash on load and when hash changes (e.g. back/forward)
+  useEffect(() => {
+    setActiveTab(getTabFromHash());
+    const onHashChange = () => setActiveTab(getTabFromHash());
+    window.addEventListener("hashchange", onHashChange);
+    return () => window.removeEventListener("hashchange", onHashChange);
+  }, []);
+
+  const setActiveTabAndHash = useCallback((id: string) => {
+    setActiveTab(id);
+    window.history.replaceState(null, "", "#" + id);
+  }, []);
   const [portfolioDisplayFilter, setPortfolioDisplayFilter] = useState<PortfolioCategory>("All");
   const [portfolioExiting, setPortfolioExiting] = useState(false);
   const [portfolioRunGrow, setPortfolioRunGrow] = useState(false);
@@ -281,7 +302,7 @@ export default function Home() {
                   ? "bg-white/10 text-brand-primary border-t border-x border-white/40 shadow-[0_0_0_1px_rgba(255,255,255,0.35),0_18px_40px_rgba(0,0,0,0.6)] -mb-px backdrop-blur-[18px]"
                   : "text-gray-300 hover:text-white hover:bg-white/5"
               }`}
-              onClick={() => setActiveTab(item.id)}
+              onClick={() => setActiveTabAndHash(item.id)}
             >
               {item.label}
             </button>
@@ -289,7 +310,7 @@ export default function Home() {
         </div>
         <button
           type="button"
-          onClick={() => setActiveTab("contact")}
+          onClick={() => setActiveTabAndHash("contact")}
           data-torch="button"
           className="mb-0 rounded-t-lg border border-white/20 bg-white/10 px-4 py-3 text-sm font-medium text-white shadow-[0_0_0_1px_rgba(255,255,255,0.1)_inset] backdrop-blur-[18px] transition hover:bg-white/15 hover:text-brand-primary -mb-px"
         >
@@ -297,30 +318,7 @@ export default function Home() {
         </button>
       </nav>
 
-      {/* Mobile: fixed bottom floating glass nav */}
-      <div className="fixed inset-x-0 bottom-0 z-20 md:hidden pointer-events-none">
-        <div className="px-4 pb-4">
-          <nav className="glass-panel rounded-2xl flex items-center justify-center gap-0 overflow-x-auto tech-scroll-hide px-2.5 py-2 pointer-events-auto">
-            {navItems.map((item) => (
-              <button
-                type="button"
-                key={item.id}
-                data-torch="button"
-                className={`shrink-0 px-2 py-2 text-[11px] font-medium transition ${
-                  item.id === activeTab
-                    ? "text-brand-primary"
-                    : "text-gray-300 hover:text-white"
-                }`}
-                onClick={() => setActiveTab(item.id)}
-              >
-                {item.label}
-              </button>
-            ))}
-          </nav>
-        </div>
-      </div>
-
-      <div className="flex-1 p-6 lg:p-10 pb-24 md:pb-10 space-y-12 overflow-y-auto">
+      <div className="flex-1 p-6 lg:p-10 pb-10 space-y-12 overflow-y-auto">
         {activeTab === "about" && (
           <>
             {/* About Me */}

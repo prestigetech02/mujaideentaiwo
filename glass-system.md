@@ -137,3 +137,123 @@ Define tokens like this:
 --glass-border: rgba(255,255,255,0.18);
 --glass-blur: 20px;
 --glass-radius: 24px;
+
+
+GlassSystem v1.1 — Edge & Gloss Model
+1️⃣ Outer Edge Highlight (The Shine Line)
+
+This is the thin light border that makes it feel like real glass.
+
+Define it as:
+
+1px border
+
+Semi-transparent white
+
+Slight gradient fade
+
+Example rule:
+
+border: 1px solid rgba(255, 255, 255, 0.25);
+
+But Apple doesn’t use flat borders.
+
+So define this instead:
+
+border: 1px solid rgba(255, 255, 255, 0.18);
+box-shadow:
+  0 0 0 1px rgba(255,255,255,0.05) inset;
+
+Now you have:
+
+Outer glass edge
+
+Inner reflective rim
+
+Tell Cursor:
+
+All glass containers must use dual-edge highlight (outer + inner inset).
+
+2️⃣ Glossy Top Reflection (Critical)
+
+Apple glass always has a soft top highlight, like light hitting it from above.
+
+Define this as:
+
+A subtle white gradient overlay
+
+Fades from top to transparent
+
+Very low opacity
+
+Implementation concept:
+
+background: linear-gradient(
+  to bottom,
+  rgba(255,255,255,0.25),
+  rgba(255,255,255,0.05) 40%,
+  transparent 70%
+);
+
+But this must be layered over your glass background.
+
+So tell Cursor:
+
+Each glass container must include a top-directional gloss gradient overlay at 5–15% opacity.
+
+That’s what makes it feel “wet” instead of flat.
+
+3️⃣ Soft Edge Glow (Depth Layer)
+
+To avoid looking like Windows Vista glass, Apple adds soft ambient glow.
+
+Define:
+
+box-shadow:
+  0 8px 32px rgba(0,0,0,0.25),
+  0 0 40px rgba(255,255,255,0.03);
+
+This gives:
+
+Depth shadow
+
+Ambient atmospheric light
+
+Tell Cursor:
+
+Add subtle ambient edge glow, not harsh shadow.
+
+🧠 Important: Define Light Direction
+
+Apple glass always assumes:
+
+☀️ Light source comes from TOP-LEFT
+
+So define:
+
+Global light direction: top-left.
+All highlights must respect this.
+
+That way hover states and shine animations follow the same physics.
+
+🧊 If You Want Real “Premium iOS” Feel
+
+Add this advanced rule:
+
+Micro Noise Texture
+
+Apple glass isn’t perfectly smooth.
+It has micro noise.
+
+Define:
+
+1–2% noise texture
+
+Very subtle overlay
+
+Blend mode: overlay
+
+Tell Cursor:
+
+Apply ultra-subtle noise texture to avoid flat digital look.
+
