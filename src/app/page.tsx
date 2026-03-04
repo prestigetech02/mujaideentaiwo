@@ -216,11 +216,13 @@ function getTabFromHash(): string {
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState("about");
+  const [hasHydratedTabs, setHasHydratedTabs] = useState(false);
   const [portfolioFilter, setPortfolioFilter] = useState<PortfolioCategory>("All");
 
   // Sync tab with URL hash on load and when hash changes (e.g. back/forward)
   useEffect(() => {
     setActiveTab(getTabFromHash());
+    setHasHydratedTabs(true);
     const onHashChange = () => setActiveTab(getTabFromHash());
     window.addEventListener("hashchange", onHashChange);
     return () => window.removeEventListener("hashchange", onHashChange);
@@ -252,6 +254,10 @@ export default function Home() {
     const t = setTimeout(() => setPortfolioRunGrow(false), 320);
     return () => clearTimeout(t);
   }, [portfolioRunGrow]);
+
+  if (!hasHydratedTabs) {
+    return null;
+  }
 
   const [contactForm, setContactForm] = useState({
     name: "",
