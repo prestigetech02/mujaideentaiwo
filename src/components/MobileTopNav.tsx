@@ -41,7 +41,7 @@ export default function MobileTopNav() {
 
   return (
     <div className="md:hidden sticky top-0 z-10 px-4 pt-4 pb-4 bg-black/70 backdrop-blur-sm">
-      <nav className="glass-panel rounded-3xl flex items-center justify-center gap-1 overflow-x-auto tech-scroll-hide px-3 py-2.5">
+      <nav className="glass-panel rounded-3xl flex items-center justify-center gap-0 overflow-x-auto tech-scroll-hide px-3 py-2.5">
         {navItems.map((item) => (
           <button
             type="button"
