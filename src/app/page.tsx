@@ -258,10 +258,8 @@ export default function Home() {
     return () => clearTimeout(t);
   }, [portfolioRunGrow]);
 
-  if (!hasHydratedTabs) {
-    return null;
-  }
-
+  // Contact state must be declared before any early return
+  // to satisfy React hook ordering rules.
   const [contactForm, setContactForm] = useState({
     name: "",
     email: "",
@@ -271,6 +269,10 @@ export default function Home() {
   const [contactSubmitted, setContactSubmitted] = useState(false);
   const [contactSending, setContactSending] = useState(false);
   const [contactError, setContactError] = useState<string | null>(null);
+
+  if (!hasHydratedTabs) {
+    return null;
+  }
 
   const handleContactSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
