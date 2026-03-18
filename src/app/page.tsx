@@ -200,6 +200,7 @@ const projects: {
   { title: "Kwikwell", category: "Wordpress Websites", image: "/projects/kwikwell-wordpress.png", url: "https://kwikwell.com" },
   { title: "Pointnews", category: "Wordpress Websites", image: "/projects/Pointnews-wordpress.png", url: "https://pointnews247.com" },
   { title: "Myrhobes", category: "Wordpress Websites", image: "/projects/Myrhobes-wordpress.png", url: "https://myrhobes.com" },
+  { title: "Hobson's Choice", category: "Wordpress Websites", image: "/projects/Hobsonschoice-wordpress.png", url: "https://hobsonschoicehmhealthcare.com/" },
   { title: "Artwell Fitz", category: "Wordpress Websites", image: "/projects/artwell-wordpress.png", url: "https://artwellfitzre.com.ng/" },
   { title: "Unmask Initiative", category: "Wordpress Websites", image: "/projects/unmask-wordpress.png", url: "https://unmaskinitiative.org/" },
   // UI/UX
