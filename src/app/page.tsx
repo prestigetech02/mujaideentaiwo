@@ -200,6 +200,8 @@ const projects: {
   { title: "Kwikwell", category: "Wordpress Websites", image: "/projects/kwikwell-wordpress.png", url: "https://kwikwell.com" },
   { title: "Pointnews", category: "Wordpress Websites", image: "/projects/Pointnews-wordpress.png", url: "https://pointnews247.com" },
   { title: "Myrhobes", category: "Wordpress Websites", image: "/projects/Myrhobes-wordpress.png", url: "https://myrhobes.com" },
+  { title: "Artwell Fitz", category: "Wordpress Websites", image: "/projects/artwell-wordpress.png", url: "https://artwellfitzre.com.ng/" },
+  { title: "Unmask Initiative", category: "Wordpress Websites", image: "/projects/unmask-wordpress.png", url: "https://unmaskinitiative.org/" },
   // UI/UX
   { title: "Craftly", category: "UI/UX", image: "/projects/Craftly-UIux.png", url: "https://www.figma.com/design/EVwDRid286qk5XQE3pPt7r/CRAFTLY?node-id=883-7322&t=W7m1p0YwJuxRGsn4-0" },
   { title: "Farmvault", category: "UI/UX", image: "/projects/farmvault-uiux.png", url: "https://www.figma.com/design/Cpbi6ZwGN4ih4Ohw0M5KTd/Farm-Vault-Landing-Page?node-id=222-4773&t=BUkU7MEdi5whlcmu-0" },
